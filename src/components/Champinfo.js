@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from 'react'
 import axios from "../helpers/axios"
 import Champion from './Champion.js';
+import "./Champinfo.css"
 
 
 function Champinfo() {
@@ -30,15 +31,17 @@ function Champinfo() {
 
   if(championData!=null){
     return (
-        <div>
+    <div className="champion-body">
+        <div className="cards">
           { Object.keys(championData).map((champion)=>{
         
         return <Champion key={champion} champion={championData[champion]}/>
      })}
          
         </div>
+        </div>
     )} else{
-    return(<div>Cannot reach Riot API</div>)
+    return(<div>Loading...</div>)
     }
     
         }
